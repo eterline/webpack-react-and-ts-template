@@ -1,0 +1,46 @@
+{
+  "name": "webpack-react-and-ts-template",
+  "version": "1.0.0",
+  "description": "webpack-react example template",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config webpack.config.ts --env mode=development",
+    "build:prod": "webpack --config webpack.config.ts --env mode=production build=web",
+    "test": "test",
+    "start": "webpack serve --open --env serverPort=9400"
+  },
+  "repository": {
+    "type": "git",
+    "url": "webpack-react-and-ts-template"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-dev-server": "^4.7.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "react": "^19.0.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "author": "Eterline",
+  "license": "MIT",
+  "dependencies": {
+    "html-webpack-plugin": "^5.6.3",
+    "inline-source-map": "^0.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "react-dom": "^19.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
