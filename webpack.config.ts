@@ -26,7 +26,7 @@ module.exports = (env: configEnv) => {
         // Entry JS File
         entry: "./src/main.tsx",
         output: {
-            filename: "app.bundle.[contenthash].js",
+            filename: "bundle.[contenthash].js",
             path: path.resolve(__dirname, env.build ?? "build"),
             clean: true
         },
@@ -36,8 +36,10 @@ module.exports = (env: configEnv) => {
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, "public", "index.html"),
                 cache: false
+            }),
+            new MiniCssExtractPlugin({
+                filename: "styles.[contenthash].css",
             })
-            // new MiniCssExtractPlugin()
         ],
 
         // Loaders rules
@@ -56,13 +58,26 @@ module.exports = (env: configEnv) => {
             // CSS loader
                 {
                     test: /\.css$/i,
-                    use: ['style-loader', 'css-loader'],
+                    use: [MiniCssExtractPlugin.loader, "css-loader"],
                 },
             // Image content loader
                 {
-                    test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                    test: /\.(woff(2)?|png|jpg|jpeg|gif)$/i,
                     type: 'asset/resource',
                 },
+
+                {
+                    test: /\.svg$/,
+                    use: [
+                      {
+                        loader: 'file-loader',
+                        options: {
+                          name: '[name].[ext]',
+                          outputPath: 'assets/',
+                        },
+                      },
+                    ],
+                }
             ],
           },
 
